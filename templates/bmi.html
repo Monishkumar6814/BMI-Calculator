@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>BMI Calculator</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            width: 350px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #eeeeee;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>BMI Calculator</h1>
+
+        <form action="/calculate" method="POST">
+
+            <label>Weight (kg)</label>
+
+            <input
+                type="number"
+                name="weight"
+                step="0.1"
+                placeholder="Enter weight"
+                required
+            >
+
+            <label>Height (cm)</label>
+
+            <input
+                type="number"
+                name="height"
+                step="0.1"
+                placeholder="Enter height"
+                required
+            >
+
+            <button type="submit">
+                Calculate BMI
+            </button>
+
+        </form>
+
+
+        {% if bmi %}
+
+        <div class="result">
+
+            <h2>Your BMI</h2>
+
+            <h1>{{ bmi }}</h1>
+
+            <p>
+                Category: <strong>{{ category }}</strong>
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>
